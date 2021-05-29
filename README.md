@@ -41,12 +41,11 @@ float32 x
 
 float32 y
 
+where min and max defines the range(request), and x and y are the new target position(response)
+
 ## Rqt_Graph
 
 ![alt rqt_graph](https://github.com/BullshidoArtist/RT1_Assignment1/blob/master/rosgraph.png)
 
-
-
-where min and max defines the range(request), and x and y are the new target position(response)
 
 
