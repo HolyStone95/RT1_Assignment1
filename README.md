@@ -30,11 +30,15 @@ This package is composed of two nodes contained in the **src** folder:
 The service file for /goal is contained in the folder **srv** of the package, precisely it's called **Goal.srv**:
 
 request:
+
 float32 min
+
 float32 max
 
 response:
+
 float32 x
+
 float32 y
 
 where min and max defines the range(request), and x and y are the new target position(response)
