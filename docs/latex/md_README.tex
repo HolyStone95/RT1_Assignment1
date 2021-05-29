@@ -1,0 +1,32 @@
+This package contains the source code of the two nodes necessary in order to complete the first assignment of Research Track 1 course of Robotics Engineering Laurea Magistrale, academic year 2020/2021. This work is a completely original work of Iacopo Pietrasanta.
+
+\subsubsection*{How to launch and additional documentation}
+
+In order to launch the simulation the packages {\bfseries stage\+\_\+ros} and {\bfseries assignment1} needs to be installed. In the package assignment1 the file exercise.\+world needs to be present in the world folder. If these prerequisites are met , the simulation can be launched with a launch file via command line\+:
+
+\$ roslaunch bot\+\_\+simulation assignment1.\+launch
+
+Additional documentation regarding the project can be found in the docs folder, particularly opening the file index.\+html in the {\bfseries html} folder
+
+\subsubsection*{Behaviour}
+
+Once the simulation is launched the robot will repeat in a loop these next steps\+:
+
+
+\begin{DoxyItemize}
+\item 1. The robot asks for a random target, with both coordinates in the interval (-\/6.\+0, 6.\+0).
+\item 2. The robot reaches the target.
+\item 3. Go to step 1.
+\end{DoxyItemize}
+
+\subsubsection*{Architecture}
+
+This package is composed of two nodes contained in the {\bfseries src} folder\+:
+
+
+\begin{DoxyItemize}
+\item {\bfseries \hyperlink{controller_8cpp}{controller.\+cpp}} implements a subscriber to /odom to retrive robot pose, a publisher to /cmd\+\_\+vel to set the robot velocity and a client to the service /goal in order to request a new random target in a range specified by the request.
+\item {\bfseries \hyperlink{targeting__server_8cpp}{targeting\+\_\+server.\+cpp}} simply implementes a server for the service /goal and a function {\bfseries rand\+M\+ToN} that calculate the actual random values once the request has been recieved.
+\end{DoxyItemize}
+
+The service file for /goal is contained in the folder {\bfseries srv} of the package, precisely it\textquotesingle{}s called {\bfseries Goal.\+srv}. 

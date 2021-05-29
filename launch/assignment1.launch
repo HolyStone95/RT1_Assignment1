@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+
+<launch>
+
+    <node pkg="stage_ros" name="world" type="stageros" args="$(find assignment1)/world/exercise.world" />
+    <node pkg="bot_simulation" name="trg_srv" type="trg_srv" />
+    <node pkg="bot_simulation" name="agent_controller" type="agent_controller" output="screen"/>
+
+</launch>

@@ -1,0 +1,85 @@
+\hypertarget{targeting__server_8cpp}{}\section{src/targeting\+\_\+server.cpp File Reference}
+\label{targeting__server_8cpp}\index{src/targeting\+\_\+server.\+cpp@{src/targeting\+\_\+server.\+cpp}}
+{\ttfamily \#include \char`\"{}ros/ros.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}bot\+\_\+simulation/\+Goal.\+h\char`\"{}}\\*
+Include dependency graph for targeting\+\_\+server.\+cpp\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=278pt]{targeting__server_8cpp__incl}
+\end{center}
+\end{figure}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+double \hyperlink{targeting__server_8cpp_a10f83119b77a8fbd085a5550955f85ff}{rand\+M\+ToN} (double M, double N)
+\begin{DoxyCompactList}\small\item\em Function to get a random number in a range. \end{DoxyCompactList}\item 
+bool \hyperlink{targeting__server_8cpp_a9f90b9476a101e2e159dee265ffc7c3a}{myrandom} (bot\+\_\+simulation\+::\+Goal\+::\+Request \&req, bot\+\_\+simulation\+::\+Goal\+::\+Response \&res)
+\begin{DoxyCompactList}\small\item\em Service Callback for /goal server. \end{DoxyCompactList}\item 
+int \hyperlink{targeting__server_8cpp_a3c04138a5bfe5d72780bb7e82a18e627}{main} (int argc, char $\ast$$\ast$argv)
+\begin{DoxyCompactList}\small\item\em Targeting server Node. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\index{targeting\+\_\+server.\+cpp@{targeting\+\_\+server.\+cpp}!main@{main}}
+\index{main@{main}!targeting\+\_\+server.\+cpp@{targeting\+\_\+server.\+cpp}}
+\subsubsection[{\texorpdfstring{main(int argc, char $\ast$$\ast$argv)}{main(int argc, char **argv)}}]{\setlength{\rightskip}{0pt plus 5cm}int main (
+\begin{DoxyParamCaption}
+\item[{int}]{argc, }
+\item[{char $\ast$$\ast$}]{argv}
+\end{DoxyParamCaption}
+)}\hypertarget{targeting__server_8cpp_a3c04138a5bfe5d72780bb7e82a18e627}{}\label{targeting__server_8cpp_a3c04138a5bfe5d72780bb7e82a18e627}
+
+
+Targeting server Node. 
+
+This node implements the server for /goal service, in charge of computing a new target position Node initialization; Server initialization for the service /goal. 
+
+Definition at line 29 of file targeting\+\_\+server.\+cpp.
+
+\index{targeting\+\_\+server.\+cpp@{targeting\+\_\+server.\+cpp}!myrandom@{myrandom}}
+\index{myrandom@{myrandom}!targeting\+\_\+server.\+cpp@{targeting\+\_\+server.\+cpp}}
+\subsubsection[{\texorpdfstring{myrandom(bot\+\_\+simulation\+::\+Goal\+::\+Request \&req, bot\+\_\+simulation\+::\+Goal\+::\+Response \&res)}{myrandom(bot_simulation::Goal::Request &req, bot_simulation::Goal::Response &res)}}]{\setlength{\rightskip}{0pt plus 5cm}bool myrandom (
+\begin{DoxyParamCaption}
+\item[{bot\+\_\+simulation\+::\+Goal\+::\+Request \&}]{req, }
+\item[{bot\+\_\+simulation\+::\+Goal\+::\+Response \&}]{res}
+\end{DoxyParamCaption}
+)}\hypertarget{targeting__server_8cpp_a9f90b9476a101e2e159dee265ffc7c3a}{}\label{targeting__server_8cpp_a9f90b9476a101e2e159dee265ffc7c3a}
+
+
+Service Callback for /goal server. 
+
+Calls the function rand\+M\+ToN in order to populate the service response based on the request 
+\begin{DoxyParams}{Parameters}
+{\em req} & service request \\
+\hline
+{\em res} & service response \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 18 of file targeting\+\_\+server.\+cpp.
+
+\index{targeting\+\_\+server.\+cpp@{targeting\+\_\+server.\+cpp}!rand\+M\+ToN@{rand\+M\+ToN}}
+\index{rand\+M\+ToN@{rand\+M\+ToN}!targeting\+\_\+server.\+cpp@{targeting\+\_\+server.\+cpp}}
+\subsubsection[{\texorpdfstring{rand\+M\+To\+N(double M, double N)}{randMToN(double M, double N)}}]{\setlength{\rightskip}{0pt plus 5cm}double rand\+M\+ToN (
+\begin{DoxyParamCaption}
+\item[{double}]{M, }
+\item[{double}]{N}
+\end{DoxyParamCaption}
+)}\hypertarget{targeting__server_8cpp_a10f83119b77a8fbd085a5550955f85ff}{}\label{targeting__server_8cpp_a10f83119b77a8fbd085a5550955f85ff}
+
+
+Function to get a random number in a range. 
+
+Returns a random double in a range between a minimum and a maximum 
+\begin{DoxyParams}{Parameters}
+{\em M} & minimum \\
+\hline
+{\em N} & maximum \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 9 of file targeting\+\_\+server.\+cpp.
+

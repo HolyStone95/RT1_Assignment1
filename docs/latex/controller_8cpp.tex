@@ -1,0 +1,169 @@
+\hypertarget{controller_8cpp}{}\section{src/controller.cpp File Reference}
+\label{controller_8cpp}\index{src/controller.\+cpp@{src/controller.\+cpp}}
+{\ttfamily \#include \char`\"{}ros/ros.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}geometry\+\_\+msgs/\+Twist.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}nav\+\_\+msgs/\+Odometry.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}bot\+\_\+simulation/\+Goal.\+h\char`\"{}}\\*
+Include dependency graph for controller.\+cpp\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{controller_8cpp__incl}
+\end{center}
+\end{figure}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{controller_8cpp_aab6e381bffc34921244a29ec0538ba64}{position\+Callback} (const nav\+\_\+msgs\+::\+Odometry\+::\+Const\+Ptr \&msg)
+\begin{DoxyCompactList}\small\item\em Callback called by subscriber to topic /odom. \end{DoxyCompactList}\item 
+int \hyperlink{controller_8cpp_a3c04138a5bfe5d72780bb7e82a18e627}{main} (int argc, char $\ast$$\ast$argv)
+\begin{DoxyCompactList}\small\item\em Main controller function. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+ros\+::\+Publisher \hyperlink{controller_8cpp_a350594df3e8f6948c8462edfd41ce086}{pub}
+\begin{DoxyCompactList}\small\item\em Global publisher since it will be used in the callback. \end{DoxyCompactList}\item 
+ros\+::\+Service\+Client \hyperlink{controller_8cpp_a17bcd065930a8a7f9f194078d9977268}{client}
+\begin{DoxyCompactList}\small\item\em Global service client since it will be used in the callback. \end{DoxyCompactList}\item 
+float \hyperlink{controller_8cpp_a9fc4cca635a26c692681a7071e379aa7}{k} =3.\+0
+\begin{DoxyCompactList}\small\item\em A costant parameter used in velocity computation. \end{DoxyCompactList}\item 
+float \hyperlink{controller_8cpp_ac0df33c619e3c146b6f892ec65219336}{goal\+\_\+x} =0.\+0
+\begin{DoxyCompactList}\small\item\em x value for the target position \end{DoxyCompactList}\item 
+float \hyperlink{controller_8cpp_a86a424410ae6b4f43baca838da5f993b}{goal\+\_\+y} =0.\+0
+\begin{DoxyCompactList}\small\item\em y value for the target position \end{DoxyCompactList}\item 
+float \hyperlink{controller_8cpp_a06f14a9abd47b91465f895d5259cdc1b}{distance} =0.\+0
+\begin{DoxyCompactList}\small\item\em variable for the distance \end{DoxyCompactList}\item 
+float \hyperlink{controller_8cpp_a94f98c123703f2950c9a529dd67ca5c5}{robot\+\_\+x}
+\begin{DoxyCompactList}\small\item\em x value for the robot position \end{DoxyCompactList}\item 
+float \hyperlink{controller_8cpp_ad10724c6ea6f6012098ff6267f6ffb65}{robot\+\_\+y}
+\begin{DoxyCompactList}\small\item\em y value for the robot position \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\index{controller.\+cpp@{controller.\+cpp}!main@{main}}
+\index{main@{main}!controller.\+cpp@{controller.\+cpp}}
+\subsubsection[{\texorpdfstring{main(int argc, char $\ast$$\ast$argv)}{main(int argc, char **argv)}}]{\setlength{\rightskip}{0pt plus 5cm}int main (
+\begin{DoxyParamCaption}
+\item[{int}]{argc, }
+\item[{char $\ast$$\ast$}]{argv}
+\end{DoxyParamCaption}
+)}\hypertarget{controller_8cpp_a3c04138a5bfe5d72780bb7e82a18e627}{}\label{controller_8cpp_a3c04138a5bfe5d72780bb7e82a18e627}
+
+
+Main controller function. 
+
+This node is the actual controller of the robot, it keeps track of position, sets velocities, and asks for new targets. Node initialization; Initialiazes a client to a service /goal for receiving a new target. Initializes a subscriber to /odom to retrieve robot pose, and a publisher to /cmd\+\_\+vel to set robot velocity. 
+
+Definition at line 61 of file controller.\+cpp.
+
+\index{controller.\+cpp@{controller.\+cpp}!position\+Callback@{position\+Callback}}
+\index{position\+Callback@{position\+Callback}!controller.\+cpp@{controller.\+cpp}}
+\subsubsection[{\texorpdfstring{position\+Callback(const nav\+\_\+msgs\+::\+Odometry\+::\+Const\+Ptr \&msg)}{positionCallback(const nav_msgs::Odometry::ConstPtr &msg)}}]{\setlength{\rightskip}{0pt plus 5cm}void position\+Callback (
+\begin{DoxyParamCaption}
+\item[{const nav\+\_\+msgs\+::\+Odometry\+::\+Const\+Ptr \&}]{msg}
+\end{DoxyParamCaption}
+)}\hypertarget{controller_8cpp_aab6e381bffc34921244a29ec0538ba64}{}\label{controller_8cpp_aab6e381bffc34921244a29ec0538ba64}
+
+
+Callback called by subscriber to topic /odom. 
+
+This Callback receives the robot pose from /odom, computes the distance from the goal. If the goal is reached a new target is asked by a client. Robot velocity is adjusted with respect to distance. 
+\begin{DoxyParams}{Parameters}
+{\em msg} & Pointer to a nav\+\_\+msgs/\+Odometry message \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 29 of file controller.\+cpp.
+
+
+
+\subsection{Variable Documentation}
+\index{controller.\+cpp@{controller.\+cpp}!client@{client}}
+\index{client@{client}!controller.\+cpp@{controller.\+cpp}}
+\subsubsection[{\texorpdfstring{client}{client}}]{\setlength{\rightskip}{0pt plus 5cm}ros\+::\+Service\+Client client}\hypertarget{controller_8cpp_a17bcd065930a8a7f9f194078d9977268}{}\label{controller_8cpp_a17bcd065930a8a7f9f194078d9977268}
+
+
+Global service client since it will be used in the callback. 
+
+
+
+Definition at line 9 of file controller.\+cpp.
+
+\index{controller.\+cpp@{controller.\+cpp}!distance@{distance}}
+\index{distance@{distance}!controller.\+cpp@{controller.\+cpp}}
+\subsubsection[{\texorpdfstring{distance}{distance}}]{\setlength{\rightskip}{0pt plus 5cm}float distance =0.\+0}\hypertarget{controller_8cpp_a06f14a9abd47b91465f895d5259cdc1b}{}\label{controller_8cpp_a06f14a9abd47b91465f895d5259cdc1b}
+
+
+variable for the distance 
+
+
+
+Definition at line 17 of file controller.\+cpp.
+
+\index{controller.\+cpp@{controller.\+cpp}!goal\+\_\+x@{goal\+\_\+x}}
+\index{goal\+\_\+x@{goal\+\_\+x}!controller.\+cpp@{controller.\+cpp}}
+\subsubsection[{\texorpdfstring{goal\+\_\+x}{goal_x}}]{\setlength{\rightskip}{0pt plus 5cm}float goal\+\_\+x =0.\+0}\hypertarget{controller_8cpp_ac0df33c619e3c146b6f892ec65219336}{}\label{controller_8cpp_ac0df33c619e3c146b6f892ec65219336}
+
+
+x value for the target position 
+
+
+
+Definition at line 13 of file controller.\+cpp.
+
+\index{controller.\+cpp@{controller.\+cpp}!goal\+\_\+y@{goal\+\_\+y}}
+\index{goal\+\_\+y@{goal\+\_\+y}!controller.\+cpp@{controller.\+cpp}}
+\subsubsection[{\texorpdfstring{goal\+\_\+y}{goal_y}}]{\setlength{\rightskip}{0pt plus 5cm}float goal\+\_\+y =0.\+0}\hypertarget{controller_8cpp_a86a424410ae6b4f43baca838da5f993b}{}\label{controller_8cpp_a86a424410ae6b4f43baca838da5f993b}
+
+
+y value for the target position 
+
+
+
+Definition at line 15 of file controller.\+cpp.
+
+\index{controller.\+cpp@{controller.\+cpp}!k@{k}}
+\index{k@{k}!controller.\+cpp@{controller.\+cpp}}
+\subsubsection[{\texorpdfstring{k}{k}}]{\setlength{\rightskip}{0pt plus 5cm}float k =3.\+0}\hypertarget{controller_8cpp_a9fc4cca635a26c692681a7071e379aa7}{}\label{controller_8cpp_a9fc4cca635a26c692681a7071e379aa7}
+
+
+A costant parameter used in velocity computation. 
+
+
+
+Definition at line 11 of file controller.\+cpp.
+
+\index{controller.\+cpp@{controller.\+cpp}!pub@{pub}}
+\index{pub@{pub}!controller.\+cpp@{controller.\+cpp}}
+\subsubsection[{\texorpdfstring{pub}{pub}}]{\setlength{\rightskip}{0pt plus 5cm}ros\+::\+Publisher pub}\hypertarget{controller_8cpp_a350594df3e8f6948c8462edfd41ce086}{}\label{controller_8cpp_a350594df3e8f6948c8462edfd41ce086}
+
+
+Global publisher since it will be used in the callback. 
+
+
+
+Definition at line 7 of file controller.\+cpp.
+
+\index{controller.\+cpp@{controller.\+cpp}!robot\+\_\+x@{robot\+\_\+x}}
+\index{robot\+\_\+x@{robot\+\_\+x}!controller.\+cpp@{controller.\+cpp}}
+\subsubsection[{\texorpdfstring{robot\+\_\+x}{robot_x}}]{\setlength{\rightskip}{0pt plus 5cm}float robot\+\_\+x}\hypertarget{controller_8cpp_a94f98c123703f2950c9a529dd67ca5c5}{}\label{controller_8cpp_a94f98c123703f2950c9a529dd67ca5c5}
+
+
+x value for the robot position 
+
+
+
+Definition at line 19 of file controller.\+cpp.
+
+\index{controller.\+cpp@{controller.\+cpp}!robot\+\_\+y@{robot\+\_\+y}}
+\index{robot\+\_\+y@{robot\+\_\+y}!controller.\+cpp@{controller.\+cpp}}
+\subsubsection[{\texorpdfstring{robot\+\_\+y}{robot_y}}]{\setlength{\rightskip}{0pt plus 5cm}float robot\+\_\+y}\hypertarget{controller_8cpp_ad10724c6ea6f6012098ff6267f6ffb65}{}\label{controller_8cpp_ad10724c6ea6f6012098ff6267f6ffb65}
+
+
+y value for the robot position 
+
+
+
+Definition at line 21 of file controller.\+cpp.
+
