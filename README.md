@@ -2,7 +2,7 @@
 
 This package contains the source code of the two nodes necessary in order to complete the first assignment of Research Track 1 course of Robotics Engineering Laurea Magistrale, academic year 2020/2021. This work is a completely original work of Iacopo Pietrasanta.
 
-##How to launch and additional documentation
+#How to launch and additional documentation
 
 In order to launch the simulation the packages **stage_ros** and **assignment1** needs to be installed. In the package assignment1 the file exercise.world needs to be present in the world folder.
 If these prerequisites are met , the simulation can be launched with a launch file via command line:
@@ -11,7 +11,7 @@ $ roslaunch bot_simulation assignment1.launch
 
 Additional documentation regarding the project can be found in the docs folder, particularly opening the file index.html in the **html** folder
 
-##Behaviour
+#Behaviour
 
 Once the simulation is launched the robot will repeat in a loop these next steps:
 
@@ -19,7 +19,7 @@ Once the simulation is launched the robot will repeat in a loop these next steps
 - 2. The robot reaches the target.
 - 3. Go to step 1.
 
-##Architecture
+#Architecture
 
 This package is composed of two nodes contained in the **src** folder:
 
