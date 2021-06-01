@@ -6,9 +6,9 @@ This package contains the source code of the two nodes necessary in order to com
 
 In order to launch the simulation the packages **stage_ros** and **assignment1** needs to be installed. In the package assignment1 the file exercise.world needs to be present in the world folder.
 If these prerequisites are met , the simulation can be launched with a launch file via command line:
-
-$ roslaunch bot_simulation assignment1.launch
-
+'''
+ roslaunch bot_simulation assignment1.launch
+'''
 Additional documentation regarding the project can be found in the docs folder, particularly opening the file index.html in the **html** folder
 
 ## Behaviour
@@ -45,7 +45,7 @@ where min and max defines the range(request), and x and y are the new target pos
 
 ## Rqt_Graph
 
-![alt rqt_graph](https://github.com/BullshidoArtist/RT1_Assignment1/blob/master/rosgraph.png)
+![alt rqt_graph](https://github.com/HolyStone95/RT1_Assignment1/blob/master/rosgraph.png)
 
 
 
